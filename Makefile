@@ -6,7 +6,7 @@
 #    By: anpogorz <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/11 08:26:03 by anpogorz          #+#    #+#              #
-#    Updated: 2019/10/15 11:45:05 by anpogorz         ###   ########.fr        #
+#    Updated: 2019/10/16 07:21:18 by anpogorz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,18 +19,19 @@ SRCS	= ./ft_atoi.c ./ft_bzero.c ./ft_calloc.c ./ft_isalnum.c ./ft_isalpha.c \
 		  ./ft_putchar_fd.c ./ft_putendl_fd.c ./ft_putnbr_fd.c ./ft_putstr_fd.c \
 		  ./ft_split.c ./ft_strjoin.c ./ft_strmapi.c ./ft_strtrim.c ./ft_substr.c
 
-HEADER	= ./libft.h
-
 OBJS	= ${SRCS:.c=.o}
 
 NAME	= libft.a
 
-CFLAGS	= -Wall -Wextra -Werror -I ${HEADER}
+CC		= gcc
+
+CFLAGS	= -Wall -Wextra -Werror -I. -c
 
 all:		${NAME}
 
 ${NAME}:	${OBJS}
-				gcc	${OBJS} -o ${NAME}
+			ar rc ${NAME} ${OBJS}
+			ranlib ${NAME}
 
 clean:
 			rm -f ${OBJS}

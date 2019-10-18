@@ -6,13 +6,13 @@
 /*   By: anpogorz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 14:37:19 by anpogorz          #+#    #+#             */
-/*   Updated: 2019/10/11 08:43:18 by anpogorz         ###   ########.fr       */
+/*   Updated: 2019/10/18 11:37:11 by anpogorz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_isdigit(int c)
+int	ft_isdigit(int c)
 {
 	if (c > 47 && c < 58)
 		return (1);

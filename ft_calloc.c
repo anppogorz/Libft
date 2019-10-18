@@ -6,7 +6,7 @@
 /*   By: anpogorz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 08:50:28 by anpogorz          #+#    #+#             */
-/*   Updated: 2019/10/15 09:43:53 by anpogorz         ###   ########.fr       */
+/*   Updated: 2019/10/18 14:12:29 by anpogorz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	void *ptr;
-	size_t i;
+	void	*ptr;
+	size_t	i;
 
 	i = 0;
 	ptr = malloc(count * size);

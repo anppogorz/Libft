@@ -6,7 +6,7 @@
 /*   By: anpogorz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 07:25:28 by anpogorz          #+#    #+#             */
-/*   Updated: 2019/10/15 11:43:42 by anpogorz         ###   ########.fr       */
+/*   Updated: 2019/10/18 11:44:39 by anpogorz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,20 +23,22 @@ int		ft_strllen(char const *s)
 	return (i);
 }
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 {
-	int i;
-	char *str;
+	int		i;
+	char	*str;
 
 	i = 0;
-	str = malloc(sizeof(char) * (ft_strllen(s) + 1));
+	if (!s || !f)
+		return (0);
+	str = (char *)malloc(sizeof(char) * (ft_strllen(s) + 1));
 	if (str == 0)
 		return (NULL);
-	while (i < ft_strllen(s))
+	while (s[i] != '\0')
 	{
-		
-		str[i] = (*f)(i, str[i]);
+		str[i] = (*f)(i, s[i]);
 		i++;
 	}
+	str[i] = '\0';
 	return (str);
 }

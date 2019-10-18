@@ -6,11 +6,11 @@
 /*   By: anpogorz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/15 07:16:39 by anpogorz          #+#    #+#             */
-/*   Updated: 2019/10/15 07:20:05 by anpogorz         ###   ########.fr       */
+/*   Updated: 2019/10/18 11:37:28 by anpogorz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-t_list *ft_lstlast(t_list *lst)
+t_list	*ft_lstlast(t_list *lst)
 {
 	while (lst->next)
 		lst = lst->next;
