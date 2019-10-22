@@ -14,13 +14,13 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t			i;
-	unsigned char	*ssrc;
-	unsigned char	*ddst;
+	size_t	i;
+	char	*ssrc;
+	char	*ddst;
 
 	i = 0;
-	ssrc = (unsigned char *)src;
-	ddst = (unsigned char *)dst;
+	ssrc = (char *)src;
+	ddst = (char *)dst;
 	if (ssrc > ddst)
 	{
 		while (len > i)
@@ -29,7 +29,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 			i++;
 		}
 	}
-	else if (ssrc < ddst)
+	else
 	{
 		while (i <= len)
 		{
