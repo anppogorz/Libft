@@ -6,7 +6,7 @@
 /*   By: anpogorz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 16:12:11 by anpogorz          #+#    #+#             */
-/*   Updated: 2019/10/21 15:08:59 by anpogorz         ###   ########.fr       */
+/*   Updated: 2019/10/22 15:01:05 by anpogorz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,19 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	i = 0;
 	ssrc = (unsigned char *)src;
 	ddst = (unsigned char *)dst;
-	if (src < dst)
+	if (ssrc > ddst)
 	{
-		while (len >= i)
+		while (len > i)
 		{
-			ddst[len] = ssrc[len];
-			len--;
+			ddst[i] = ssrc[i];
+			i++;
 		}
 	}
-	else if (src > dst)
+	else if (ssrc < ddst)
 	{
 		while (i <= len)
 		{
-			ddst[i] = ssrc[i];
+			ddst[len - i] = ssrc[len - i];
 			i++;
 		}
 	}

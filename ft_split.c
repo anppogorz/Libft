@@ -6,7 +6,7 @@
 /*   By: anpogorz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 07:10:45 by anpogorz          #+#    #+#             */
-/*   Updated: 2019/10/11 07:19:17 by anpogorz         ###   ########.fr       */
+/*   Updated: 2019/10/22 11:20:52 by anpogorz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,5 @@ char	**ft_split(char *str, char *charset)
 		return (0);
 	tab = ft_malloc(str, charset, tab, nb);
 	tab = ft_strcpy(str, charset, tab, nb);
-	free(tab);
 	return (tab);
 }

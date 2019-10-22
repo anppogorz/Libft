@@ -6,7 +6,7 @@
 /*   By: anpogorz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 14:59:14 by anpogorz          #+#    #+#             */
-/*   Updated: 2019/10/16 15:15:52 by anpogorz         ###   ########.fr       */
+/*   Updated: 2019/10/22 10:12:38 by anpogorz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t loc)
 
 	i = 0;
 	j = 0;
-	if (needle[i] == '\0')
+	if (needle[i] == '\0' || !loc || needle == haystack)
 		return ((char *)haystack);
 	while (haystack[i] != '\0' && (i < loc))
 	{

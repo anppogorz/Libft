@@ -6,7 +6,7 @@
 /*   By: anpogorz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 06:59:03 by anpogorz          #+#    #+#             */
-/*   Updated: 2019/10/18 14:20:24 by anpogorz         ###   ########.fr       */
+/*   Updated: 2019/10/22 09:33:44 by anpogorz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	*ft_nbr(char *str, long long nbr, int sign)
 
 	i = 0;
 	if (nbr == 0)
-		str[i] = '0';
+		i++;
 	if (nbr == -2147483648)
 	{
 		str[i] = '8';
@@ -50,10 +50,8 @@ char	*ft_nbr(char *str, long long nbr, int sign)
 		i++;
 	}
 	if (sign == -1)
-	{
-		str[i] = '-';
-		i++;
-	}
+		str[i++] = '-';
+	str[i] = '\0';
 	return (str);
 }
 
@@ -67,7 +65,6 @@ char	*ft_swap_str(char *str)
 	j = 0;
 	while (str[j] != '\0')
 		j++;
-	str[j] = '\0';
 	j--;
 	while (i < j)
 	{
@@ -95,6 +92,8 @@ char	*ft_itoa(int n)
 	str = malloc(sizeof(char) * (i + 1));
 	if (str == 0)
 		return (NULL);
+	if (nbr == 0)
+		str[0] = '0';
 	str = ft_nbr(str, nbr, sign);
 	str = ft_swap_str(str);
 	return (str);
