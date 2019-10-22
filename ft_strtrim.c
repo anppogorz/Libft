@@ -6,7 +6,7 @@
 /*   By: anpogorz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 12:04:48 by anpogorz          #+#    #+#             */
-/*   Updated: 2019/10/22 09:46:20 by anpogorz         ###   ########.fr       */
+/*   Updated: 2019/10/22 15:47:48 by anpogorz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,11 +68,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	i = 0;
 	j = 0;
 	if (!set || !s1)
-	{
-		str = NULL;
-		str = ft_charset_null(s1, str);
-		return (str);
-	}
+		return (NULL);
 	str = malloc(sizeof(char) * (ft_count_trim(s1, set) + 1));
 	if (str == 0)
 		return (NULL);
