@@ -6,7 +6,7 @@
 /*   By: anpogorz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/15 07:43:02 by anpogorz          #+#    #+#             */
-/*   Updated: 2019/10/15 08:06:19 by anpogorz         ###   ########.fr       */
+/*   Updated: 2019/10/24 11:24:34 by anpogorz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,14 @@
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	while (lst)
+	t_list *tmp;
+
+	*tmp = *lst;
+	while (tmp)
 	{
-		*lst->content = (*del)(*lst->content);
-		free(*lst->content);
-		*lst = *lst->next;
+		tmp->content = (*del)(tmp->content);
+		free(tmp->content);
+		tmp = tmp->next;
 	}
-	*lst = NULL;
+	*tmp = NULL;
 }

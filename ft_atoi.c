@@ -6,13 +6,13 @@
 /*   By: anpogorz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 15:39:13 by anpogorz          #+#    #+#             */
-/*   Updated: 2019/10/18 11:36:07 by anpogorz         ###   ########.fr       */
+/*   Updated: 2019/10/24 13:30:24 by anpogorz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_skip_atoi(const char *str)
+static int	ft_skip_atoi(const char *str)
 {
 	int i;
 
@@ -23,7 +23,7 @@ int	ft_skip_atoi(const char *str)
 	return (i);
 }
 
-int	ft_atoi(const char *str)
+int			ft_atoi(const char *str)
 {
 	long long	stock;
 	int			i;

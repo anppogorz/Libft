@@ -6,7 +6,7 @@
 /*   By: anpogorz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 12:04:48 by anpogorz          #+#    #+#             */
-/*   Updated: 2019/10/22 15:47:48 by anpogorz         ###   ########.fr       */
+/*   Updated: 2019/10/24 13:34:06 by anpogorz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ int		ft_count_trim(char const *s1, char const *set)
 		j++;
 	while (ft_charset(s1[i + j - 1], set) == 1)
 		j--;
+	if (j < 0)
+		j = 0;
 	return (j);
 }
 
@@ -58,7 +60,7 @@ char	*ft_charset_null(char const *s1, char *str)
 	str[i] = '\0';
 	return (str);
 }
-	
+
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	int		i;
@@ -67,7 +69,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 	i = 0;
 	j = 0;
-	if (!set || !s1)
+	if (!s1 || set == s1 || !set)
 		return (NULL);
 	str = malloc(sizeof(char) * (ft_count_trim(s1, set) + 1));
 	if (str == 0)

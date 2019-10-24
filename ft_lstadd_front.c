@@ -6,11 +6,16 @@
 /*   By: anpogorz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/15 06:58:44 by anpogorz          #+#    #+#             */
-/*   Updated: 2019/10/15 07:12:18 by anpogorz         ###   ########.fr       */
+/*   Updated: 2019/10/24 12:59:35 by anpogorz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 void	ft_lstadd_front(t_list **alst, t_list *new)
 {
-	new->next = alst[0];
+	if (!new)
+		return ;
+	new->next = *alst;
+	*alst = new;
 }

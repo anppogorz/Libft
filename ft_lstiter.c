@@ -6,7 +6,7 @@
 /*   By: anpogorz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/15 08:06:34 by anpogorz          #+#    #+#             */
-/*   Updated: 2019/10/15 08:08:21 by anpogorz         ###   ########.fr       */
+/*   Updated: 2019/10/24 13:06:07 by anpogorz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,12 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	while (lst)
+	t_list *tmp;
+
+	*tmp = lst;
+	while (tmp)
 	{
-		lst->content = (*f)(lst->content);
-		lst = lst->next;
+		tmp->content = (*f)(tmp->content);
+		tmp = tmp->next;
 	}
 }

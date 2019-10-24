@@ -6,14 +6,13 @@
 /*   By: anpogorz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/15 08:08:29 by anpogorz          #+#    #+#             */
-/*   Updated: 2019/10/15 08:36:57 by anpogorz         ###   ########.fr       */
+/*   Updated: 2019/10/24 13:28:07 by anpogorz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *))
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list *tmp;
 	size_t size;

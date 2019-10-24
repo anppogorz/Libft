@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-char	**ft_split(char *str, char *charset);
+char	**ft_split(char *str, char c);
 
 int	main(void)
 {
@@ -10,10 +10,10 @@ int	main(void)
 
 	i = 0;
 	char **tab;
-	char str[] = "bhrefgbehrjf herjferbfejr rfbh uerbfguerbr buerb frebh refr f er fer fuf  heruf ber   few e fe   ew fewf h few";
-	char charset[] = " ";
-	tab = ft_split(str, charset);
-	while (tab[i] != '\0')
+	char str[] = "      split       this for   me  !       ";
+	char set = ' ';
+	tab = ft_split(str, set);
+	while (i < 6)
 	{
 		printf("%s\n", tab[i]);
 		i++;
