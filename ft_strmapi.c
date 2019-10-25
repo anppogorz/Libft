@@ -6,12 +6,11 @@
 /*   By: anpogorz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 07:25:28 by anpogorz          #+#    #+#             */
-/*   Updated: 2019/10/18 11:44:39 by anpogorz         ###   ########.fr       */
+/*   Updated: 2019/10/25 13:53:47 by anpogorz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
 int		ft_strllen(char const *s)
 {

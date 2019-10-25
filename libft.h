@@ -6,7 +6,7 @@
 /*   By: anpogorz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 08:33:01 by anpogorz          #+#    #+#             */
-/*   Updated: 2019/10/24 09:09:32 by anpogorz         ###   ########.fr       */
+/*   Updated: 2019/10/25 13:45:03 by anpogorz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ char			*ft_substr(char const *s, unsigned int start, size_t len);
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strtrim(char const *s1, char const *set);
-char			**ft_split(char *str, char *charset);
+char			**ft_split(char *str, char c);
 char			*ft_itoa(int n);
 void			ft_putstr_fd(char *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
