@@ -6,7 +6,7 @@
 /*   By: anpogorz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 15:49:44 by anpogorz          #+#    #+#             */
-/*   Updated: 2019/10/18 11:36:21 by anpogorz         ###   ########.fr       */
+/*   Updated: 2019/11/05 10:58:47 by anpogorz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_bzero(void *s, size_t n)
 	str = (unsigned char *)s;
 	while (i < n)
 	{
-		str[i] = (unsigned char)0;
+		str[i] = '\0';
 		i++;
 	}
 }

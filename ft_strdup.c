@@ -6,7 +6,7 @@
 /*   By: anpogorz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 08:50:53 by anpogorz          #+#    #+#             */
-/*   Updated: 2019/10/18 11:43:19 by anpogorz         ###   ########.fr       */
+/*   Updated: 2019/11/05 07:57:03 by anpogorz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strdup(const char *s1)
 	int		i;
 	char	*s2;
 
+//	if (!s1)
+//		return (NULL);
 	i = 0;
 	while (s1[i] != '\0')
 		i++;

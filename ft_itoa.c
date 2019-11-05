@@ -6,13 +6,13 @@
 /*   By: anpogorz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 06:59:03 by anpogorz          #+#    #+#             */
-/*   Updated: 2019/10/22 09:33:44 by anpogorz         ###   ########.fr       */
+/*   Updated: 2019/10/29 11:46:17 by anpogorz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-int		ft_count(long long nbr, int sign)
+static int	ft_count(long long nbr, int sign)
 {
 	int i;
 
@@ -30,7 +30,7 @@ int		ft_count(long long nbr, int sign)
 	return (i);
 }
 
-char	*ft_nbr(char *str, long long nbr, int sign)
+static char	*ft_nbr(char *str, long long nbr, int sign)
 {
 	int i;
 
@@ -55,7 +55,7 @@ char	*ft_nbr(char *str, long long nbr, int sign)
 	return (str);
 }
 
-char	*ft_swap_str(char *str)
+static char	*ft_swap_str(char *str)
 {
 	char	swap;
 	int		i;
@@ -77,7 +77,7 @@ char	*ft_swap_str(char *str)
 	return (str);
 }
 
-char	*ft_itoa(int n)
+char		*ft_itoa(int n)
 {
 	int			i;
 	int			sign;

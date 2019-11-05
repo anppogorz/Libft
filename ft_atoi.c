@@ -6,7 +6,7 @@
 /*   By: anpogorz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 15:39:13 by anpogorz          #+#    #+#             */
-/*   Updated: 2019/10/24 13:30:24 by anpogorz         ###   ########.fr       */
+/*   Updated: 2019/11/05 11:09:59 by anpogorz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ static int	ft_skip_atoi(const char *str)
 
 int			ft_atoi(const char *str)
 {
-	long long	stock;
-	int			i;
-	int			sign;
+	unsigned long long	stock;
+	int					i;
+	int					sign;
 
 	stock = 0;
 	i = ft_skip_atoi(str);
@@ -41,7 +41,9 @@ int			ft_atoi(const char *str)
 	while (str[i] > 47 && str[i] < 58)
 	{
 		stock = (str[i] - 48) + (stock * 10);
+		if (stock > 9223372036854775807)
+			return (sign > 0 ? -1 : 0);
 		i++;
 	}
-	return (stock * sign);
+	return ((int)stock * sign);
 }

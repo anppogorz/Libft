@@ -6,13 +6,13 @@
 /*   By: anpogorz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 07:10:45 by anpogorz          #+#    #+#             */
-/*   Updated: 2019/10/24 14:54:22 by anpogorz         ###   ########.fr       */
+/*   Updated: 2019/10/29 08:12:59 by anpogorz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	**ft_free(char **tab, int nb)
+static char		**ft_free(char **tab, int nb)
 {
 	while (nb > 0)
 	{
@@ -23,7 +23,7 @@ char	**ft_free(char **tab, int nb)
 	return (tab);
 }
 
-char	**ft_malloc(char *str, char c, char **tab, int nb)
+static char		**ft_malloc(char const *s, char c, char **tab, int nb)
 {
 	int i;
 	int j;
@@ -32,11 +32,11 @@ char	**ft_malloc(char *str, char c, char **tab, int nb)
 	i = 0;
 	j = 0;
 	k = 0;
-	while (str[i] != '\0' && j < nb)
+	while (s[i] != '\0' && j < nb)
 	{
-		while (str[i] == c && (str[i] != '\0'))
+		while (s[i] == c && (s[i] != '\0'))
 			i++;
-		while (str[i] != c && (str[i] != '\0'))
+		while (s[i] != c && (s[i] != '\0'))
 		{
 			i++;
 			k++;
@@ -49,29 +49,29 @@ char	**ft_malloc(char *str, char c, char **tab, int nb)
 	return (tab);
 }
 
-int		ft_words(char *str, char c)
+static int		ft_words(char const *s, char c)
 {
 	int i;
 	int l;
 
 	i = 0;
 	l = 1;
-	while (str[i] == c)
+	while (s[i] == c)
 	{
 		i++;
-		if (str[i] == '\0')
+		if (s[i] == '\0')
 			l = 0;
 	}
-	while (str[i] != '\0')
+	while (s[i] != '\0')
 	{
-		if ((str[i] == c) && (str[i + 1] != c) && (str[i + 1] != '\0'))
+		if ((s[i] == c) && (s[i + 1] != c) && (s[i + 1] != '\0'))
 			l++;
 		i++;
 	}
 	return (l);
 }
 
-char	**ft_strcpy(char *str, char c, char **tab, int nb)
+static char		**ft_strcpy(char const *s, char c, char **tab, int nb)
 {
 	int i;
 	int j;
@@ -80,13 +80,13 @@ char	**ft_strcpy(char *str, char c, char **tab, int nb)
 	i = 0;
 	j = 0;
 	k = 0;
-	while (j < nb && str[i] != '\0')
+	while (j < nb && s[i] != '\0')
 	{
-		while (str[i] == c && (str[i] != '\0'))
+		while (s[i] == c && (s[i] != '\0'))
 			i++;
-		while (str[i] != c && (str[i] != '\0'))
+		while (s[i] != c && (s[i] != '\0'))
 		{
-			tab[j][k] = str[i];
+			tab[j][k] = s[i];
 			k++;
 			i++;
 		}
@@ -98,21 +98,21 @@ char	**ft_strcpy(char *str, char c, char **tab, int nb)
 	return (tab);
 }
 
-char	**ft_split(char *str, char c)
+char			**ft_split(char const *s, char c)
 {
 	char	**tab;
 	int		nb;
 
-	if (!str)
+	if (!s)
 		return (NULL);
 	nb = 0;
-	nb = ft_words(str, c);
+	nb = ft_words(s, c);
 	tab = malloc(sizeof(char **) * (nb + 1));
 	if (tab == NULL)
 		return (0);
-	tab = ft_malloc(str, c, tab, nb);
+	tab = ft_malloc(s, c, tab, nb);
 	if (tab == NULL)
 		return (tab);
-	tab = ft_strcpy(str, c, tab, nb);
+	tab = ft_strcpy(s, c, tab, nb);
 	return (tab);
 }

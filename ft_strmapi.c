@@ -6,13 +6,13 @@
 /*   By: anpogorz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 07:25:28 by anpogorz          #+#    #+#             */
-/*   Updated: 2019/10/25 13:53:47 by anpogorz         ###   ########.fr       */
+/*   Updated: 2019/10/29 11:46:48 by anpogorz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strllen(char const *s)
+static int	ft_strllen(char const *s)
 {
 	int i;
 
@@ -22,7 +22,7 @@ int		ft_strllen(char const *s)
 	return (i);
 }
 
-char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
+char		*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 {
 	int		i;
 	char	*str;

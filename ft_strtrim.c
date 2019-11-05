@@ -6,13 +6,13 @@
 /*   By: anpogorz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 12:04:48 by anpogorz          #+#    #+#             */
-/*   Updated: 2019/10/24 14:38:43 by anpogorz         ###   ########.fr       */
+/*   Updated: 2019/10/29 11:46:31 by anpogorz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_charset(char c, char const *set)
+static int	ft_charset(char c, char const *set)
 {
 	int i;
 
@@ -26,7 +26,7 @@ int		ft_charset(char c, char const *set)
 	return (0);
 }
 
-int		ft_count_trim(char const *s1, char const *set)
+static int	ft_count_trim(char const *s1, char const *set)
 {
 	int i;
 	int j;
@@ -44,24 +44,7 @@ int		ft_count_trim(char const *s1, char const *set)
 	return (j);
 }
 
-char	*ft_charset_null(char const *s1, char *str)
-{
-	int i;
-
-	i = 0;
-	str = (char *)malloc(sizeof(char) * (ft_strlen(s1) + 1));
-	if (str == 0)
-		return (NULL);
-	while (s1[i] != '\0')
-	{
-		str[i] = s1[i];
-		i++;
-	}
-	str[i] = '\0';
-	return (str);
-}
-
-char	*ft_strtrim(char const *s1, char const *set)
+char		*ft_strtrim(char const *s1, char const *set)
 {
 	int		i;
 	int		j;

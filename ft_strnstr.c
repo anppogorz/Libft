@@ -6,31 +6,35 @@
 /*   By: anpogorz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 14:59:14 by anpogorz          #+#    #+#             */
-/*   Updated: 2019/10/22 10:12:38 by anpogorz         ###   ########.fr       */
+/*   Updated: 2019/11/05 11:40:05 by anpogorz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t loc)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	size_t i;
-	size_t j;
+	size_t	i;
+	size_t	j;
+	char	*ptr;
 
 	i = 0;
-	j = 0;
-	if (needle[i] == '\0' || !loc || needle == haystack)
+	ptr = 0;
+	if (needle[i] == '\0')
 		return ((char *)haystack);
-	while (haystack[i] != '\0' && (i < loc))
+	while (haystack[i] != '\0' && (i < len))
 	{
-		while (haystack[i] == needle[j])
+		if (haystack[i] == needle[0])
 		{
-			i++;
+			ptr = (char *)haystack + i;
+			j = 0;
+		while (haystack[i + j] == needle[j] && (i + j) < len)
+		{
+			if (needle[j + 1] == '\0')
+				return (ptr);
 			j++;
-			if (needle[j] == '\0' && (i < loc))
-				return ((char *)haystack + (i - j));
 		}
-		j = 0;
+		}
 		i++;
 	}
 	return (NULL);

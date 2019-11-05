@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anpogorz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/16 06:59:38 by anpogorz          #+#    #+#             */
-/*   Updated: 2019/10/24 13:34:57 by anpogorz         ###   ########.fr       */
+/*   Created: 2019/10/29 09:58:04 by anpogorz          #+#    #+#             */
+/*   Updated: 2019/10/31 08:40:36 by anpogorz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,7 @@ t_list	*ft_lstnew(void *content)
 	new = (t_list*)malloc(sizeof(t_list));
 	if (new == NULL)
 		return (NULL);
-	new->content = malloc(sizeof(t_list) * ft_strlen(content));
-	if (new->content == NULL)
-		return (NULL);
-	new->content = ft_memcpy(new->content, content, ft_strlen(content));
+	new->content = content;
 	new->next = NULL;
 	return (new);
 }
