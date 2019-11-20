@@ -1,4 +1,4 @@
-0/* ************************************************************************** */
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
@@ -10,11 +10,49 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "get_next_line.h"
+#include <stdio.h>
+
 int	check_errors(int fd)
 {
 	if (fd < 0)
 		return (-1);
-	return (0)
+	return (0);
+}
+
+int	check_sentence(char *rest, char c)
+{
+	int i;
+
+	i = 0;
+	if (!rest)
+	    return (0);
+	while (rest[i] != '\0')
+	{
+		if (rest[i] == c)
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+char *ft_malloc(char *str)
+{
+    char *str_malloc;
+    int i;
+
+    i = 0;
+    while (str[i] != '\0')
+        i++;
+    str_malloc = (char *)malloc(sizeof(char) * i);
+    i = 0;
+    while (str[i] != '\0')
+    {
+        str_malloc[i] = str[i];
+        i++;
+    }
+    str_malloc[i] = '\0';
+    return (str_malloc);
 }
 
 int get_next_line(int fd, char **line)
@@ -26,15 +64,22 @@ int get_next_line(int fd, char **line)
 
 	if (check_errors(fd) == -1)
 		return (-1);
+	if (check_sentence(rest, '0') == 1)
+	{
+		rest = ft_find_sentence(rest, line, '0');
+		return (1);
+	}
 	buffer = ft_calloc(1, BUFFER_SIZE + 1);
 	while ((ret = read(fd, buffer, BUFFER_SIZE)) != 0)
 	{
 		buffer[ret] = '\0';
-		if (!(readstr = ft_strjoin(rest, buffer)))
-			return (-1);
-		rest = ft_find_sentence(readstring, &line, '\n');
+		readstr = ft_malloc(ft_strjoin(rest, buffer));
+		printf("rest avant: %s\n", rest);
+		rest = ft_find_sentence(readstr, line, '0');
+		printf("rest apres: %s\n", rest);
 		if (strcmp(rest, readstr) != 0)
 			return (1);
+		buffer = ft_bzero(buffer, BUFFER_SIZE + 1);
 	}
 	return (0);
 }

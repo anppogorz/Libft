@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include <stdio.h>
 
 void	*ft_calloc(size_t count, size_t size)
 {
@@ -24,7 +25,7 @@ void	*ft_calloc(size_t count, size_t size)
 	return ((void *)ptr);
 }
 
-void	ft_bzero(void *s, size_t n)
+char	*ft_bzero(char *s, size_t n)
 {
     size_t			i;
     unsigned char	*str;
@@ -36,6 +37,7 @@ void	ft_bzero(void *s, size_t n)
         str[i] = 0;
         i++;
     }
+    return (s);
 }
 
 int ft_strcmp(char *s1, char *s2)
@@ -51,6 +53,32 @@ int ft_strcmp(char *s1, char *s2)
 	}
 	return (0);
 }
+
+char	*ft_strjoin(char *s1, char *s2)
+{
+	char *str;
+	int i;
+	int j;
+
+	i = -1;
+	j = 0;
+	if (!s1)
+		return (s2);
+    while (s1[++i] != '\0')
+		j++;
+	i = -1;
+	while (s2[++i] != '\0')
+		j++;
+	if (!(str = (char *)malloc(sizeof(char) * (j + 1))))
+		return (NULL);
+	while (*s1)
+		*str++ = *s1++;
+	while (*s2)
+		*str++ = *s2++;
+	*str = '\0';
+	return (str - j);
+}
+
 char	*ft_find_sentence(char *readstring, char **line, char c)
 {
 	int i;
@@ -63,13 +91,14 @@ char	*ft_find_sentence(char *readstring, char **line, char c)
 		{
 			if (!(str = (char *)malloc(sizeof(char) * (i + 1))))
 				return (NULL);
-			str[i] = '\0';
-			while (--i > 0)
+			while (i-- > 0)
 				str[i] = readstring[i];
 			*line = str;
+			i++;
 			while (str[i] != '\0')
 				i++;
-			return (readstring + i);
+			str[i] = '\0';
+			return (readstring + i + 1);
 		}
 		i++;
 	}

@@ -11,14 +11,20 @@
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
-# define GET_LINE_H
+# define GET_NEXT_LINE_H
+# define BUFFER_SIZE 4
 
 #include <sys/types.h>
 #include <unistd.h>
 #include <stdlib.h>
 #include <string.h>
 
-char	*ft_calloc(char *str, size_t size);
-char	*ft_bzero(char *s);
+void	*ft_calloc(size_t count, size_t size);
+char	*ft_bzero(char *s, size_t n);
 int		ft_strcmp(char *s1, char *s2);
 char	*ft_find_sentence(char *s, char **line, char c);
+char	*ft_strjoin(char *s1, char *s2);
+int		check_sentence(char *rest, char c);
+int		check_errors(int fd);
+
+#endif
