@@ -13,10 +13,11 @@ int main(void)
     int retour;
     char *line;
 
-    line = (char *)malloc(sizeof(char) * 1000);
     fd = open("text.txt", O_RDONLY);
+    retour = 1;
     while (retour != 0)
     {
+		line = (char *)calloc(1000, 1);
     	retour = get_next_line(fd, &line);
 		printf("%s\n", line);
     }

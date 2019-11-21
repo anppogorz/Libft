@@ -74,12 +74,12 @@ int get_next_line(int fd, char **line)
 	{
 		buffer[ret] = '\0';
 		readstr = ft_malloc(ft_strjoin(rest, buffer));
-		printf("rest avant: %s\n", rest);
 		rest = ft_find_sentence(readstr, line, '0');
-		printf("rest apres: %s\n", rest);
 		if (strcmp(rest, readstr) != 0)
 			return (1);
 		buffer = ft_bzero(buffer, BUFFER_SIZE + 1);
 	}
+	if (ret == 0)
+		*line = rest;
 	return (0);
 }

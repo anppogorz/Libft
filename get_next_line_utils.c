@@ -98,6 +98,8 @@ char	*ft_find_sentence(char *readstring, char **line, char c)
 			while (str[i] != '\0')
 				i++;
 			str[i] = '\0';
+			if (line == NULL)
+				*line = readstring + i + 1;
 			return (readstring + i + 1);
 		}
 		i++;
